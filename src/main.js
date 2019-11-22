@@ -5,7 +5,8 @@ import './styles.css';
 
 $(document).ready(function(){
   $('').click(function(){
-    const inputSearch = $("").val();
+    const inputSearch = $("#inputSearch").val();
+    const inputState = $("#inputState").val();
 
     (async () => {
       let grabInfo = new Doctor();
@@ -13,8 +14,8 @@ $(document).ready(function(){
     })();
 
     function getPractice(info) {
-      $('#doctorSearch').text(`Practice: ${response.info.}`);
-    };
+      $('.lastName').text(`Status: ${response.meta.item_type}, Last Name: ${response.data.profile.last_name}`);
+      $('.practiceInfo').text(`Practice: ${response.info.}, Current License Number: ${response.licenses[0].number}`);
 
   });
 });
