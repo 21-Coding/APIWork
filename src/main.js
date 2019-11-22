@@ -4,18 +4,21 @@ import 'bootstrap';
 import './styles.css';
 
 $(document).ready(function(){
-  $('').click(function(){
-    const inputSearch = $("#inputSearch").val();
-    const inputState = $("#inputState").val();
+  $('#button').click(function(){
+
+    const medicalIssue = $("#medicalIssue").val();
+    // const inputSearch = $("#inputSearch").val();
+    // const inputState = $("#inputState").val();
 
     (async () => {
       let grabInfo = new Doctor();
-      const info = await grabInfo.getPractice(info);
+      const info = await getPractice(info);
+      grabInfo.getIssues(medicalIssue);
     })();
 
     function getPractice(info) {
-      $('.lastName').text(`Status: ${response.meta.item_type}, Last Name: ${response.data.profile.last_name}`);
-      $('.practiceInfo').text(`Practice: ${response.info.}, Current License Number: ${response.licenses[0].number}`);
+      $('.lastName').text(`Status: ${info.meta.item_type}, Last Name: ${response.data.profile.last_name}`);
+      // $('.practiceInfo').text(`Practice: $.info.}, Current License Number: ${response.licenses[0].number}`);
 
   });
 });
