@@ -19,6 +19,5 @@ $(document).ready(function(){
     function getPractice(info) {
       $('.lastName').text(`Status: ${info.meta.item_type}, Last Name: ${response.data.profile.last_name}`);
       // $('.practiceInfo').text(`Practice: $.info.}, Current License Number: ${response.licenses[0].number}`);
-
+    }
   });
-});
