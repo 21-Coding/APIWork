@@ -6,18 +6,22 @@ import './styles.css';
 $(document).ready(function(){
   $('#button').click(function(){
 
-    const medicalIssue = $("#medicalIssue").val();
+    const stateCity = $("#stateCity").val();
     // const inputSearch = $("#inputSearch").val();
     // const inputState = $("#inputState").val();
 
     (async () => {
       let grabInfo = new Doctor();
       const info = await getPractice(info);
-      grabInfo.getIssues(medicalIssue);
+      
     })();
 
     function getPractice(info) {
-      $('.lastName').text(`Status: ${info.meta.item_type}, Last Name: ${response.data.profile.last_name}`);
+      $('.practiceInfo').text(`Practice Info: ${info.data[0].practices[0]}, ${info.data[0].practices.visit_address.street}, ${info.data[0].practices.visit_address.state},
+        ${info.data[0].practices.visit_address.city},
+          ${info.data[0].practices.phones[0].number},
+          ${info.data[0].practices.phones[0].type},
+         ${response.data[0].practices[0].location_slug}`);
       // $('.practiceInfo').text(`Practice: $.info.}, Current License Number: ${response.licenses[0].number}`);
     }
   });
