@@ -8,7 +8,7 @@ $(document).ready(function(){
     const doctor = $("#doctorLookup").val();
     $("#doctorLookup").val("");
 
-
+    let query = $("query");
 
 
 
@@ -20,7 +20,13 @@ $(document).ready(function(){
 
 
     function getPractice(info) {
-      $('.practiceInfo').text(`Practice Info: ${info.data[0].name}, ${info.data[0].practices.visit_address.street}`); 
+      $('.doctorName').text(`Practice Name: ${info.data[0].practices[0].name}`);
+      $('.firstName').text(` First Name: ${info.data[0].profile.first_name}`);
+      $('.lastName').text(` Last Name: ${info.data[0].profile.last_name}`);
+      $('.website').text(` Website: ${info.data[0].practices[0].website}`);
+      $('.number').text(` Number: ${info.data[0].practices[0].phones[0].number}`);
+      $('.street1').text(` Street: ${info.data[0].pracitces[0].visit_address.street}`);
+      $('.street2').text(` Street2: ${info.data[0].pracitces[0].visit_address.street2});
 
     }
   });
